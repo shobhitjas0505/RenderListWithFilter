@@ -71,7 +71,7 @@ function App() {
       }
     }
 
-  }, [filterState]);
+  }, [filterState,allUserList]);
 
 
 
