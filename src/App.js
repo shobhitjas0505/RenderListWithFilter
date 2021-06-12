@@ -93,6 +93,7 @@ function App() {
   
   return (
     <div>
+      RenderListWithFilter
       <HeaderComponent updateFilterState={updateFilterState}></HeaderComponent>
       <ListComponent allUserList={filterUserList}></ListComponent>
     </div>
