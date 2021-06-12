@@ -1,0 +1,154 @@
+import React from "react";
+import "./Search.css";
+
+class Search extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      searchLists: [
+        {
+          id: 1,
+          type: "All",
+          name: "Akash",
+          location: "bangalore",
+          experience: 1
+        },
+        {
+          id: 2,
+          type: "FullTime",
+          name: "feroz",
+          location: "mumbai",
+          experience: 3
+        },
+        {
+          id: 3,
+          type: "PartTime",
+          name: "Farheen",
+          location: "agra",
+          experience: 5
+        },
+        {
+          id: 4,
+          type: "Freelancer",
+          name: "Raju",
+          location: "chennai",
+          experience: 6
+        },
+        {
+          id: 5,
+          type: "All",
+          name: "Asif",
+          location: "vegas",
+          experience: 7
+        }
+      ],
+      checked: false
+    };
+  }
+
+  handleAll = () => {
+    console.log("i clicked");
+    if (this.state.checked === false) {
+      const filteredAll = this.state.searchLists.filter(
+        item => item.type === "All"
+      );
+
+      console.log(filteredAll);
+      this.setState({ searchLists: filteredAll, checked: true });
+    } else {
+      setTimeout(() => {
+        this.setState({
+          searchLists: this.state.searchLists,
+          checked: false
+        });
+      }, 10000);
+    }
+  };
+
+  handleFullTime = () => {
+    if (this.state.checked === false) {
+      const filteredFullTime = this.state.searchLists.filter(
+        item => item.type === "FullTime"
+      );
+      console.log(filteredFullTime);
+      this.setState({ searchLists: filteredFullTime, checked: true });
+    } else {
+      setTimeout(() => {
+        this.setState({
+          searchLists: this.state.searchLists,
+          checked: false
+        });
+      }, 10000);
+    }
+  };
+
+  handlePartTime = () => {
+    if (this.state.checked === false) {
+      const filteredPartTime = this.state.searchLists.filter(
+        item => item.type === "PartTime"
+      );
+      console.log(filteredPartTime);
+      this.setState({ searchLists: filteredPartTime, checked: true });
+    } else {
+      setTimeout(() => {
+        this.setState({
+          searchLists: this.state.searchLists,
+          checked: false
+        });
+      }, 10000);
+    }
+  };
+
+  handleFreelancer = () => {
+    if (this.state.checked === false) {
+      const filteredFreelancer = this.state.searchLists.filter(
+        item => item.type === "Freelancer"
+      );
+      console.log(filteredFreelancer);
+      this.setState({ searchLists: filteredFreelancer, checked: true });
+    } else {
+      setTimeout(() => {
+        this.setState({
+          searchLists: this.state.searchLists,
+          checked: false
+        });
+      }, 10000);
+    }
+  };
+
+  render() {
+    console.log("rendered");
+    const mapped = this.state.searchLists.map(item => {
+      return (
+        <div key={item.id}>
+          <li>
+            {item.name}
+            {item.type}
+          </li>
+        </div>
+      );
+    });
+    return (
+      <div className="searchContainer">
+        <form>
+          <label htmlFor="myInput">All</label>
+          <input
+            id="myInput"
+            type="checkbox"
+            onClick={this.handleAll}
+            checked={this.state.checked}
+          />
+          <label htmlFor="myInput">FullTime</label>
+          <input id="myInput" type="checkbox" onClick={this.handleFullTime} />
+          <label htmlFor="myInput">PartTime</label>
+          <input id="myInput" type="checkbox" onClick={this.handlePartTime} />
+          <label htmlFor="myInput">Freelancer</label>
+          <input id="myInput" type="checkbox" onClick={this.handleFreelancer} />
+        </form>
+        <ul style={{ marginLeft: "70px" }}>{mapped}</ul>
+      </div>
+    );
+  }
+}
+
+export default Search;

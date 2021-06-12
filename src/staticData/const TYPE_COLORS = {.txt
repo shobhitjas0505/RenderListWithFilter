@@ -1,0 +1,14 @@
+const TYPE_COLORS = {
+"0":"#48BEFF",
+"1":"#3DFAFF",
+"2":"#43C59E",
+"3":"#3D7068",
+"4":"#14453D",
+
+
+<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"></label>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="vehicle2"> I have a car</label><br>
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  <label for="vehicle3"> I have a boat</label><br><br>
