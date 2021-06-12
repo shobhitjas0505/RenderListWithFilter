@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 
 function EachList(props) {
-  const [eachListData, setEachListData] = useState(props.eachListData);
+
+  const [eachListData, setEachListData] = useState([]);
+
+  useEffect(() => {
+    setEachListData(props.eachListData);
+  }, [props.eachListData]);
+
 
 
   function renderEachList(){
